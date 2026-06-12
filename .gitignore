@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# Swift Package Manager
+.build/
+
+# Tuning data (contains personal document photos — never commit)
+samples/
+outputs/
+写真を確認した感想.txt
