@@ -1,7 +1,16 @@
 # FilterTuner - 画像フィルターパラメーターチューニングツール
 
-iOSアプリ「ReportScan」の画像処理パラメーターを効率的にチューニングするためのmacOSコマンドラインツールです。
+![Swift](https://img.shields.io/badge/Swift-5.9+-F05138?logo=swift&logoColor=white)
+![macOS](https://img.shields.io/badge/macOS-CLI-black?logo=apple)
+
+iOSアプリ「[ReportScan](https://github.com/k-haruya/report-scan-ios)」([App Store](https://apps.apple.com/jp/app/id6758909865))の画像処理パラメーターを効率的にチューニングするためのmacOSコマンドラインツールです。
 Version 2.0 では、より強力な影除去と文字強調を実現するためにアルゴリズムを刷新しました。
+
+> A macOS CLI that systematically sweeps Core Image filter parameters (Division Normalization shadow removal + adaptive thresholding) against sample document photos, used to tune the image pipeline of the ReportScan iOS app. Sample photos are excluded from this repository for privacy.
+
+**仕組み**: `samples/` に書類の写真を置いて実行すると、影除去(Division Normalization)・二値化・ノイズ除去等のパラメーターの組み合わせを総当たりで適用した画像を `outputs/` に生成します。ファイル名にパラメーター値が埋め込まれるため、目視で最良の組み合わせを特定できます。確定したパラメーターは [`BestConfig_v072_2026-02-06/`](BestConfig_v072_2026-02-06/) にスナップショットとして保存し、iOSアプリ本体の `FilterConfig.swift` に反映しています。
+
+※ `samples/`・`outputs/` のチューニング用写真は個人の書類のためリポジトリには含めていません。
 
 ## セットアップ
 
